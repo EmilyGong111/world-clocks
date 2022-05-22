@@ -18,15 +18,9 @@ const BasicPointer = styled.div`
     }
 `
 BasicPointer.defaultProps = {
-    rotate: 10,
-    size: 100,
     tail:0,
-    is_white:true,
-    bg_white:"#ff6767",
-    bg_black: "#69c0ff",
     bg_radius: "6px 6px 3px 3px",
     z_index: 0,
-    width: 4
 }
 
 export default BasicPointer;
