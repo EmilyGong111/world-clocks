@@ -3,7 +3,7 @@ const ClockBackGround = styled.div`
 width: ${ props => props.size};
 height: ${ props => props.size};
 display: flex;
-justify-content: center;
+justify-content: space-between;
 align-items: center;
 flex-direction: column;
 background: rgba(255, 255, 255, 0.1);

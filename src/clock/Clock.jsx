@@ -10,6 +10,7 @@ const Clock = (props) =>{
     
     const [Hour, setHour] = useState();
 
+
     const deg = 6
     const setTime = ()=>{   //set the time to the right initially
         let nowTime = new Date();
@@ -17,7 +18,7 @@ const Clock = (props) =>{
         let hour = day.getUTCHours() * deg * 5
         let minute = day.getUTCMinutes() * deg
         let second = day.getUTCSeconds() * deg 
-        setHourDeg(hour + minute / 12)
+        setHourDeg(day.getUTCHours() * deg * 5 + minute / 12)
         setMinuteDeg(minute + second / 60)
         setSecondDeg(second)
         setHour(day.getUTCHours())
@@ -35,9 +36,14 @@ const Clock = (props) =>{
         }
     },[Hour])
 
-    return <ClockBackGround>
-        <ClockPointer is_white={light} hourDeg={hourDeg} minuteDeg={minuteDeg} secondDeg={secondDeg}/>
-    </ClockBackGround>  //如果想要改变大小，要传参<ClockBackGround size={"200px"}></ClockBackGround>，只能改变那边的默认参数
+
+    return (
+        <ClockBackGround>
+            <h2> {props.city}</h2>
+            <ClockPointer is_white={light} hourDeg={hourDeg} minuteDeg={minuteDeg} secondDeg={secondDeg}/>
+            <p>2022</p>  
+        </ClockBackGround>
+    )
 };
 
 export default Clock;
