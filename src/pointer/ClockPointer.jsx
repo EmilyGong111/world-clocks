@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import ClockCenter from "./ClockCenter";
-import BasicPointer from "./BasicPointer";
+import HourPointer from "./HourPointer";
+import MinutePointer from "./MinutePointer";
+import SecondPointer from "./SecondPointer";
+
 
 const ClockPointerStyle = styled.div`
     position: relative;
@@ -32,7 +35,9 @@ ClockPointerStyle.defaultProps = {
 const ClockPointer = (props) =>{
  return (
     <ClockPointerStyle>
-        <BasicPointer />
+        <HourPointer />
+        <MinutePointer />
+        <SecondPointer  />
         <ClockCenter />
     </ClockPointerStyle>
  )

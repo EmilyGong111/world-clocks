@@ -12,13 +12,13 @@ const BasicPointer = styled.div`
         content: "";
         /* position: absolute; */
         width: ${(props)=> props.width}px;
-        height: ${(props)=>`calc(${props.size /2}px + ${props.tail}px)`};
+        height: ${(props)=>`calc(${props.size /2}px + ${props.tail}px)`};//put 'px' twice outside in case sometimes we need to calc rem/other with px
         background: ${(props)=> props.is_white ? props.bg_white : props.bg_black};
         border-radius: ${(props)=>props.bg_radius}
     }
 `
 BasicPointer.defaultProps = {
-    rotate: 0,
+    rotate: 10,
     size: 100,
     tail:0,
     is_white:true,
