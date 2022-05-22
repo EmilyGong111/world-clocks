@@ -7,8 +7,9 @@ const Clock = (props) =>{
     const [hourDeg, setHourDeg] =useState(0)
     const [minuteDeg, setMinuteDeg] =useState(0)
     const [secondDeg, setSecondDeg] =useState(0)
-    
+    const [Day, setDay] =useState(2022)
     const [Hour, setHour] = useState();
+    
 
 
     const deg = 6
@@ -18,10 +19,20 @@ const Clock = (props) =>{
         let hour = day.getUTCHours() * deg * 5
         let minute = day.getUTCMinutes() * deg
         let second = day.getUTCSeconds() * deg 
-        setHourDeg(day.getUTCHours() * deg * 5 + minute / 12)
+        setHourDeg(hour + minute / 12)
         setMinuteDeg(minute + second / 60)
         setSecondDeg(second)
         setHour(day.getUTCHours())
+
+        const getCurrentDate =(separator='-')=>{
+            let newDate = new Date();
+            let day = new Date(nowTime.getTime() + props.timezone * 3600000);
+            let date = day.getDate();
+            let month = newDate.getMonth() + 1;
+            let year = newDate.getFullYear();
+            return `${year}${separator}${month<10?`0${month}`:`${month}`}${separator}${date}`
+        }
+        setDay(getCurrentDate())
     }
 
     useEffect(()=>{
@@ -41,7 +52,7 @@ const Clock = (props) =>{
         <ClockBackGround>
             <h2> {props.city}</h2>
             <ClockPointer is_white={light} hourDeg={hourDeg} minuteDeg={minuteDeg} secondDeg={secondDeg}/>
-            <p>2022</p>  
+            <h2>{Day}</h2>  
         </ClockBackGround>
     )
 };
